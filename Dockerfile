@@ -6,7 +6,7 @@ RUN echo $PATH
 ENV PATH="$PATH:/opt/bin"
 RUN echo $PATH
 RUN echo $PATH; pip install setuptools wheel
-RUN echo $PATH; which gcc; pip wheel -r requirements.txt
+RUN echo $PATH; which ls gcc nano; pip wheel -r requirements.txt
 
 
 FROM python:3.11-alpine
