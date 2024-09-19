@@ -6,7 +6,6 @@ RUN pip install setuptools wheel
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
      && pip install cython \
      && apk del .build-deps gcc musl-dev \
-     && which gcc \
      && pip wheel -r requirements.txt
 
 
