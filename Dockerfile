@@ -5,8 +5,8 @@ COPY goodwe_proxy_server/requirements.txt requirements.txt
 RUN echo $PATH
 ENV PATH="$PATH:/opt/bin"
 RUN echo $PATH
-RUN pip install setuptools wheel
-RUN pip wheel -r requirements.txt
+RUN echo $PATH; pip install setuptools wheel
+RUN echo $PATH; pip wheel -r requirements.txt
 
 
 FROM python:3.11-alpine
