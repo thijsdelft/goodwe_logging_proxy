@@ -2,6 +2,7 @@ FROM python:3.11-alpine as builder
 
 WORKDIR /install
 COPY goodwe_proxy_server/requirements.txt requirements.txt
+RUN echo $PATH
 RUN pip install setuptools wheel
 RUN pip wheel -r requirements.txt
 
