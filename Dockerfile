@@ -2,11 +2,11 @@ FROM python:3.11-alpine as builder
 
 WORKDIR /install
 COPY goodwe_proxy_server/requirements.txt requirements.txt
-RUN echo $PATH
-ENV PATH="$PATH:/opt/bin"
-RUN echo $PATH
-RUN echo $PATH; pip install setuptools wheel
-RUN echo $PATH; which ls gcc nano; pip wheel -r requirements.txt
+RUN pip install setuptools wheel
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
+     && pip install cython \
+     && apk del .build-deps gcc musl-dev
+RUN pip wheel -r requirements.txt
 
 
 FROM python:3.11-alpine
