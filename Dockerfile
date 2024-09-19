@@ -5,8 +5,9 @@ COPY goodwe_proxy_server/requirements.txt requirements.txt
 RUN pip install setuptools wheel
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
      && pip install cython \
-     && apk del .build-deps gcc musl-dev
-RUN pip wheel -r requirements.txt
+     && apk del .build-deps gcc musl-dev \
+     && which gcc \
+     && pip wheel -r requirements.txt
 
 
 FROM python:3.11-alpine
