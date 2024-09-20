@@ -1,4 +1,4 @@
-eFROM python:3.11-alpine as builder
+FROM python:3.11-alpine as builder
 
 WORKDIR /install
 COPY goodwe_proxy_server/requirements.txt requirements.txt
