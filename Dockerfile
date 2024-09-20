@@ -29,7 +29,7 @@ RUN pip install /tmp/*.whl
 COPY goodwe_proxy_server/*.py ./
 
 # run as user and group 1000
-USER root:root #1000:1000
+USER root:1000 #1000:1000
 
 # start script
 CMD [ "python3", "main.py"]
